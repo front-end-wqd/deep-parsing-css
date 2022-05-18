@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        box-sizing: border-box;
+        font-size: calc(1vw + 1em);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      body {
+        margin: 0;
+      }
+      a:link {
+        color: #1890ff;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .page-header {
+        padding: 1em;
+        background-color: #fff;
+      }
+      .title > h1 {
+        color: #333;
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        margin: 0;
+      }
+      .slogan {
+        color: #888;
+      }
+      .hero {
+        padding: 1em;
+        text-align: center;
+        background-color: #1890ff;
+        color: #fff;
+      }
+      main {
+        padding: 1em;
+      }
+      .subtitle {
+        text-transform: capitalize;
+      }
+      .menu {
+        position: relative;
+      }
+      .menu-toggle {
+        position: absolute;
+        top: -1.5em;
+        right: 0.5em;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+        font-size: 2em;
+        width: 1em;
+        height: 1em;
+        text-indent: 5em;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .menu-toggle::after {
+        position: absolute;
+        content: "\2261";
+        text-indent: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+      }
+      .menu-dropdown {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0;
+      }
+      .menu.is-open .menu-dropdown {
+        display: block;
+      }
+      .nav-menu {
+        margin: 0;
+        padding-left: 0;
+        border: 1px solid #ccc;
+        list-style: none;
+        background-color: #333;
+        color: #fff;
+      }
+      .nav-menu > li + li {
+        border-top: 1px solid #ccc;
+      }
+      .nav-menu > li > a {
+        display: block;
+        padding: 1em 2em;
+        color: #fff;
+        font-weight: normal;
+      }
+      .column > h2 {
+        margin: 0;
+      }
+      @media (min-width: 35em) {
+        .title > h1 {
+          font-size: 2.5rem;
+        }
+        .hero {
+          font-size: 1.25rem;
+        }
+        main {
+          padding: 2em;
+        }
+        .menu-toggle {
+          display: none;
+        }
+        .menu-dropdown {
+          display: block;
+          position: initial;
+        }
+        .nav-menu {
+          display: flex;
+          border: 0;
+        }
+        .nav-menu > li {
+          flex: 1;
+        }
+        .nav-menu > li + li {
+          border: 0;
+        }
+        .nav-menu > li > a {
+          text-align: center;
+        }
+        .row {
+          display: flex;
+          margin: 0 -0.75em;
+        }
+        .column {
+          flex: 1;
+          margin: 0 0.75em;
+        }
+      }
+      @media (min-width: 50em) {
+        .page-header {
+          padding: 2em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page-header" id="header">
+      <div class="title">
+        <h1>a cup of coffee</h1>
+        <div class="slogan">we love coffee</div>
+      </div>
+    </header>
+    <nav class="menu" id="main-menu">
+      <button class="menu-toggle" id="toggle-menu">toggle menu</button>
+      <div class="menu-dropdown">
+        <ul class="nav-menu">
+          <li><a href="">about</a></li>
+          <li><a href="">shop</a></li>
+          <li><a href="">menu</a></li>
+        </ul>
+      </div>
+    </nav>
+    <aside class="hero" id="hero">welcome to a cup of coffee</aside>
+    <main id="main">
+      <div class="row">
+        <section class="column">
+          <h2 class="subtitle">about</h2>
+          <p>
+            about about about about about about about about about about about
+            about about about about
+          </p>
+        </section>
+        <section class="column">
+          <h2 class="subtitle">shop</h2>
+          <p>
+            shop shop shop shop shop shop shop shop shop shop shop shop shop
+            shop shop
+          </p>
+        </section>
+        <section class="column">
+          <h2 class="subtitle">menu</h2>
+          <p>
+            menu menu menu menu menu menu menu menu menu menu menu menu menu
+            menu menu
+          </p>
+        </section>
+      </div>
+    </main>
+    <script>
+      (function () {
+        let button = document.getElementById("toggle-menu");
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          let menu = document.getElementById("main-menu");
+          menu.classList.toggle("is-open");
+        });
+      })();
+    </script>
+  </body>
+</html>
